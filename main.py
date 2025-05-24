@@ -6,6 +6,7 @@ from django.db import transaction
 
 
 def main() -> None:
+
     with open("players.json") as file:
         data = load(file)
 
