@@ -24,7 +24,11 @@ class Guild(models.Model):
 class Player(models.Model):
     nickname = models.CharField(max_length=255, unique=True)
     email = models.EmailField(max_length=255)
-    bio = models.CharField(max_length=255)
+    bio = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True
+    )
     race = models.ForeignKey(
         Race,
         on_delete=models.CASCADE,
@@ -36,4 +40,6 @@ class Player(models.Model):
         null=True,
         related_name="players"
     )
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
